@@ -1,0 +1,143 @@
+  <main>
+    <div class="container">
+      <div class="saleTree d-flex align-items-center">
+        <p><a href="#">Одежда</a> > <a href="">Блузки</a> ></p>
+      </div>
+      <div class="productInfo">
+        <div class="imgCarousel">
+          <div class="dropdown">
+            <img src="../img/<%= lot.image %>" alt="" width="500" height="500">
+            <div class="dropdown-content">
+              <img src="../img/<%= lot.image %>" alt="" width="1100" height="1100">
+            </div>
+          </div>
+        </div>
+        <div class="productName">
+          <div class="pName">
+            <h2> <%= lot.name %> </h2>
+          </div>
+          <div class="productId">
+            <p>ID: <%= lot.id %></p>
+          </div>
+          <div class="description">
+            <p> <%= lot.description  %></p>
+          </div>
+          <div class="price">
+            <h4>Цена:</h4>
+            <h2><span> <%= lot.cost  %> грн</span></h2>
+          </div>
+          <div class="btnBuy"><button type="button" class="btn btn-primary">Купить</button></div>
+        </div>
+      </div>
+      <div class="otherProdInfo">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Характеристики товара:</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Доставка:</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Оплата:</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="table">
+              <h5>Категория:</h5>
+              <p>Блузы и рубашки</p>
+
+              <h5>Материал изделия:</h5>
+              <p>Хлопок</p>
+
+              <h5>Страна производства:</h5>
+              <p>Украина</p>
+
+              <h5>Гарантия и возврат:</h5>
+              <p>Вы можете обменять или вернуть товар в течение 14 дней после покупки при соблюдении дополнительных условий*(см.вкладку). Это право гарантирует вам «Закон о защите прав потребителя».</p>
+
+              <h5>Дополнительная информация:</h5>
+              <p>...</p>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Безкоштовна доставка Новою Поштою (до відділення) замовлень від 1000 грн, за умови повної передоплати. Якщо сума замовлення нижча 1000 грн доставка новою
+            поштою за рахунок Покупця за тарифами перевізника.За умови післяплати, доставка товару здійснюється за рахунок Покупця за тарифами перевізника.Безкоштовна кур’єрська доставка по Києву та Одесі замовлень від 1000 грн.Безкоштовна доставка
+            кур’єром Нової пошти по Україні замовлень від 2000 грн.Можливість привезення товару та розміру на вибір.Малогабаритні замовлення до 1000 грн. – відправляються по Києву на найближче відділення Нової Пошти за рахунок Покупця.Кур’єрська
+            доставка компанії</div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <ul>
+                <li>Наличный расчет</li>
+                <li>Оплата картой</li>
+                <li>Наложенный платеж</li>
+                <li><a href="">Подробнее можно узнать тут...</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="similiarTitle">
+        <h5>Похожие товары:</h5>
+      </div>
+      <div class="similar">
+        <div class="most d-flex align-items-center d-flex justify-content-center">
+          <a href="product.html">
+            <div class="lot">
+              <div class="lotImg">
+                <img src="img/kids-sale.jpg" alt="">
+              </div>
+              <div class="lotInfo">
+                <h4>Kids Sale</h4>
+                <p>Lorem ipsum dolor sit.</p>
+                <p>Цена: 899 грн</p>
+              </div>
+              <div class=" d-flex justify-content-center"><button type="button" name="button"> В Корзину</button></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="lot">
+              <div class="lotImg">
+                <img src="img/kids-sale.jpg" alt="">
+              </div>
+              <div class="lotInfo">
+                <h4>Kids Sale</h4>
+                <p>Lorem ipsum dolor sit.</p>
+                <p>Цена: 899 грн</p>
+              </div>
+              <div class=" d-flex justify-content-center"><button type="button" name="button"> В Корзину</button></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="lot">
+              <div class="lotImg">
+                <img src="img/kids-sale.jpg" alt="">
+              </div>
+              <div class="lotInfo">
+                <h4>Kids Sale</h4>
+                <p>Lorem ipsum dolor sit.</p>
+                <p>Цена: 899 грн</p>
+              </div>
+              <div class=" d-flex justify-content-center"><button type="button" name="button"> В Корзину</button></div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="lot">
+              <div class="lotImg">
+                <img src="img/kids-sale.jpg" alt="">
+              </div>
+              <div class="lotInfo">
+                <h4>Kids Sale</h4>
+                <p>Lorem ipsum dolor sit.</p>
+                <p>Цена: 899 грн</p>
+              </div>
+              <div class=" d-flex justify-content-center"><button type="button" name="button"> В Корзину</button></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="preFooterLine"></div>
+  </main>

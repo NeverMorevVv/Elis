@@ -1,0 +1,52 @@
+<main>
+  <div class="container basket" id="basket">
+    <div class="basket_title">
+      <h1>MyCart</h1>
+    </div>
+    <div class="basket_category">
+      <div class="category"></div>
+      <div class="category">
+        <h3>Name sell </h3>
+      </div>
+      <div class="category">
+        <h3>Quantity</h3>
+      </div>
+      <div class="category">
+        <h3>Price</h3>
+      </div>
+    </div>
+    <div id="basket_field_choice"></div>
+    <% if (typeof tempArr != 'undefined'){ %>
+      <h3>LOL</h3> <%= console.log(typeof tempArr); %>
+      <% tempArr.forEach((item, i) => { %>
+        <a href="<%= item.name %>">
+      <% }); %>
+    <% } %>
+      <!-- <div class="basket_field">
+        <div class='image_sell'><img src="../img/{{this.image}}" alt=""></div>
+        <div class='name_sell'>
+          <p>{{this.name}} <br /> <span> (Остаток на складе: {{this.quantityAll}})</span></p>
+        </div>
+        <div class='quantity'><button type='button' data-id="{{this.id}}" data-count='plus'>+</button>
+          <p class='show'>{{this.quantity}}
+            piece</p><button type='button' data-id="{{this.id}}" data-count='minus'>-</button>
+        </div>
+        <div class='basket_price'>
+          <p class='basket_price'>{{sumPerLine this.quantity this.cost}}$</p>
+        </div>
+        <div class='button_delete'> <button data_id='{{this.id}}' type='submit'>Delete</button></div>
+      </div> -->
+
+  </div>
+
+  <div class="basket_total">
+    <div class=""></div>
+    <div class=""></div>
+    <div class="">
+      <h3>Total price:</h3>
+    </div>
+    <div class="total_price" id="tp"></div>
+    <div class="button_buy_now">
+      <button type="submit">Buy Now</button>
+    </div>
+  </div>

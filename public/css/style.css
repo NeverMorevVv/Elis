@@ -1,0 +1,537 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive;
+  /* font-family: 'Russo One', sans-serif; */
+  color: 1px rgba(0, 23, 79, 0.9);
+}
+
+button {
+  margin: 5px;
+}
+li {
+  list-style-type: none;
+}
+.btn-light:hover,
+.btn-light:active {
+  color: rgb(222, 68, 105);
+  background-color: white;
+  border: 1px rgba(0, 23, 79, 0.9) solid;
+}
+
+.btn-light:focus {
+  background-color: white;
+}
+
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  display: grid;
+  /* grid-template-rows: 30% 40% 30%; */
+  width: 100%;
+  height: auto;
+}
+
+.shopNow {
+  height: 40px;
+  background-color: rgb(216, 149, 168);
+  color: white;
+}
+
+.shopNow p {
+  margin: 15px 5px;
+}
+.shopNow li {
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.callForUs {
+  margin-right: 5px;
+  width: 150px;
+  min-width: 150px;
+  height: 35px;
+}
+
+.signIn {
+  display: grid;
+  grid-template-columns: 2fr 1fr  2fr 1fr;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.logIn,
+.logOut {
+  height: 30px;
+}
+.cartBtn,
+.logIn {
+  width: 180px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+}
+.cartBtn {
+  font-size: 18px;
+  border: 1px rgb(132,3,66) solid;
+}
+.phone {
+  margin-left: 10px;
+}
+.phone ul{
+  margin-bottom: 0;
+}
+.phone li{
+  font-size: 20px;
+  color:rgb(132,3,66);
+}
+.phone button:hover {
+  border: 1px white solid;
+}
+
+/*Search form  */
+
+ .input-wrapper {
+  width: 95%;
+  margin: 2% auto;
+  position: relative;
+}
+
+ .input-wrapper::after {
+  content: attr(data-text);
+  font-size: 16px;
+  line-height: 0;
+  height: 0;
+  max-width: 100%;
+  font-family: Roboto, Arial, sans-serif;
+  border-bottom: 1px solid #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  user-select: none;
+  color: transparent;
+}
+
+input[type="search"] {
+  border: none;
+  padding: 0;
+  outline: none;
+  width: auto;
+  min-width: 100%;
+  font-size: 20px;
+  line-height: 2em;
+  border-bottom: 2px solid #333333;
+  background-color: transparent;
+}
+ */ */
+/*  */
+.logIn {
+  font-weight: bold;
+  border: 1px rgb(216, 149, 168) solid;
+  /* text-align: right; */
+  font-size: 16px;
+  width: 170px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.signInBlock,
+.phone {
+  min-width: 200px;
+}
+
+.logo a {
+  margin-top: 5px;
+}
+.logo img {
+  width: 100px;
+  height: 130px;
+}
+.logoName {
+  padding-top: 60px;
+  padding-left: 10px;
+  color:rgb(132,3,66);
+}
+.logoName h1 {
+  line-height: 10px;
+}
+/* .logoName h5 {
+  line-height: 5px;
+} */
+.navBar {
+  background-color: rgb(132,3,66);
+  color: white;
+}
+
+.navBar span {
+  color: #42E73A
+}
+
+nav.navbar .dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  border-top: none;
+  margin-top: -1px;
+  padding-top: 10px;
+}
+
+.dropdown-menu a:hover {
+  color: rgb(132,3,66);
+}
+
+.nav-link:hover {
+  color: #89EC6A;
+}
+
+.mainBlock {
+  width: 100%;
+  height: 650px;
+  background-image: url(../img/FON-001.jpg);
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.mainBlock a:hover {
+  background: rgba(0, 0, 0, 0.61);
+  transition: background 0.5s;
+}
+
+/* .mainBlock:first-child {
+  margin-top: 15%;
+} */
+.select {
+  display: grid;
+  grid-template-rows: 6fr 1fr;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  transition: color 0.5s;
+}
+
+.dawn {
+  justify-content: center;
+}
+
+.select h2 {
+  background-color: rgba(0, 0, 0, 0.52);
+  color: white;
+}
+
+.select:hover,
+.select:active {
+  color: white;
+}
+
+/* .second {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+}
+
+.third {
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+} */
+.postDescription {
+  margin-top: 30px;
+  height: 300px;
+  background: rgb(132,3,66);
+  color: white;
+  position: relative;
+  text-align: center;
+}
+
+blockquote {
+  margin: 0 20%;
+}
+
+blockquote p {
+  font-size: 20px;
+}
+
+blockquote:before, blockquote:after {
+  font-size: 45px;
+  color: rgb(216, 149, 168);
+  position: absolute;
+  height: 2px;
+  left: 20%;
+  right: 20%;
+  line-height: .5;
+  background: linear-gradient(to right, rgb(216, 149, 168) 45%, transparent 45%, transparent), linear-gradient(to right, transparent, transparent 55%, rgb(216, 149, 168) 55%);
+  font-family: serif;
+}
+
+blockquote:before {
+  content: "\201C";
+  top: 30px;
+}
+
+blockquote:after {
+  content: "\201D";
+  bottom: 30px;
+}
+
+.changeUs {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.changeUs h2,
+.changeUs li {
+  color: rgb(102, 102, 102);
+}
+
+.preFooterLine {
+  margin-top: 5px;
+  height: 30px;
+  border-top: 1px rgb(214, 214, 214) solid;
+}
+
+footer {}
+
+.privateInfo {
+  display: flex;
+  justify-content: center;
+}
+
+.ftGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.social p {
+  text-indent: 0;
+  font-size: 18px;
+  color: rgb(119, 164, 187);
+}
+
+.contacts {
+  text-align: center;
+}
+
+.contacts li {
+  list-style-type: none;
+}
+
+.hot {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.hot h2 {
+  font-weight: bold;
+}
+
+.deskGrid {
+}
+
+
+.most {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+.lot {
+  display: grid;
+  width: 300px;
+  height: 450px;
+  margin-bottom: 10px;
+}
+.fullLot {
+  border: 1px white solid;
+  margin-bottom: 25px;
+}
+.fullLot:hover {
+  border: 1px rgb(214, 214, 214) solid;
+}
+.button_buy_now {
+
+}
+
+.lotImg img {
+  width: 298px;
+  height: 300px;
+}
+
+.lotInfo p {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.lotInfoName {
+  height: 60px;
+  overflow: hidden;
+}
+
+.lot>div {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.fullLot button {
+  width: 160px;
+  transition: background 0.7s;
+  margin-bottom: 10px;
+}
+
+.fullLot button:hover,
+.fullLot button:active {
+  background: rgb(132,3,66);
+  color:white;
+}
+
+.saleTree {
+  height: 80px;
+  color: rgb(135, 135, 135);
+}
+
+.saleTree a,
+.productId {
+  color: rgb(135, 135, 135);
+}
+
+.productInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: zoom-in;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:active .dropdown-content {
+  display: block;
+}
+
+.price span {
+  color: #008500;
+}
+
+.btnBuy button {
+  width: 200px;
+  background-color: rgb(132,3,66);
+  border: none;
+  font-weight: bold;
+}
+.btnBuy button:hover {
+  background-color:  rgb(216, 149, 168);
+  color: black;
+}
+
+.similiarTitle {
+  border-top: 1px rgb(214, 214, 214) solid;
+  padding-top: 20px;
+  margin-top: 30px;
+}
+
+.nav-tabs {
+  color: rgb(135, 135, 135);
+}
+
+.tab-pane {
+  margin: 20px;
+  text-indent: 1.5em;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 5;
+}
+
+.table h5 {
+  color: rgb(135, 135, 135);
+}
+
+.blogAll {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.blog {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-rows: 60% 30% 10%;
+  border: 1px rgb(214, 214, 214) solid;
+  margin: 5px;
+  align-items: flex-start;
+}
+.blogName {
+  overflow:hidden;
+  max-height: 100%;
+}
+.blogName p {
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+  opacity: 0.75;}
+
+
+.blog img {
+  padding: 2px;
+  border-bottom: 1px rgb(214, 214, 214) solid;
+  max-width: 400px;
+  max-height: 100%;
+}
+.blog a {
+  color: blue;
+}
+.blogName,
+.blogLink {
+  margin-left: 10px;
+}
+.solo {
+  padding: 5px;
+}
+.soloBlogImg img {
+  width:  100%;
+}
+.blogInfo {
+  margin-top: 15px;
+}
+.blogInfo h4,p {
+   text-indent: 20px;
+}
+.currentInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.currentProducts h3{
+  text-align: center;
+  margin: 10px;
+}
+.admForm {
+  text-indent: 0;
+}
+.admForm input,
+textarea {
+  margin: 1px;
+  width: 90%;
+}
+.admForm input[type=submit] {
+  background-color: rgb(216, 149, 168);
+}

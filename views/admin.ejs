@@ -1,0 +1,71 @@
+<body>
+  <div class="container">
+    <div class="center">
+      <div class="operationWthPost">
+        <div class="currentInfo">
+          <div class="currentProducts">
+            <h3>Current products</h3>
+            <ul>
+              <% currentData.forEach((item, i) => { %>
+              <li><%= item.id %> - <%= item.name %></li>
+              <% }); %>
+            </ul>
+          </div>
+          <div class="operation">
+            <div class="">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Удалить товар: </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Создать товар: </a>
+                </li>
+
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <div class="deletePost">
+                    <h3>Delete selected position:</h3>
+                    <form class="admForm" action="/admin" method="get" enctype="application/x-www-form-urlencoded">
+                      <input type="text" name="id" placeholder="id" />
+                      <br />
+                      <input type="submit" data_name="deleteSelect" value="Delete" />
+                    </form>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="createPost">
+
+                    <form class="admForm" action="/admin" method="post" enctype="multipart/form-data">
+                      <input type="text" name="id" placeholder="id" />
+                      <br />
+                      <input type="text" name="name" placeholder="name" />
+                      <br />
+                      <input type="text" name="cost" placeholder="cost" />
+                      <br />
+                      <input type="text" name="quantity" placeholder="quantity" />
+                      <br />
+                      <input type="text" name="category" placeholder="category" />
+                      <br />
+                      <textarea name="descr" placeholder="description"></textarea>
+                      <br />
+                      <input type="file" name="img_name" />
+                      <br />
+                      <input type="submit" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <h3 class="mess">
+                <% if (typeof currentMessage != 'undefined'){ %>
+                <p> <%= currentMessage %> !</p>
+                <% } %>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,4 @@
+<% if (typeof user != 'undefined'){ %>
+<p>Привет, <%= user.name %> !</p>
+<button onclick="document.location='/users/logout'" type="button" value="" class="btn btn-light btn-sm logOut"> <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+<% } %>
