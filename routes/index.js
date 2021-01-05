@@ -14,8 +14,8 @@ const urlencodedParser = bodyParser.urlencoded({
 // база данных
 const pool = mysql.createPool({
   host: 'localhost',
-  user: 'root',
-  password: '',
+  user: 'Never',
+  password: '1234567890',
   database: 'dataBase',
 });
 pool.getConnection(function(err, connection) {
