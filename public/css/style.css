@@ -381,12 +381,14 @@ grid-template-columns: 1fr 1fr 1fr 1fr;
   text-align: center;
 }
 
-.fullLot button {
+.fullLot button,
+.similar button {
   width: 160px;
   transition: background 0.7s;
   margin-bottom: 10px;
 }
-
+.similar button:hover,
+.similar button:active,
 .fullLot button:hover,
 .fullLot button:active {
   background: rgb(132,3,66);

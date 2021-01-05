@@ -51,8 +51,7 @@ app.use(
   session({
     resave: true,
     secret: 'secret',
-    saveUninitialized: false,
-    cookie: { maxAge: 600000,httpOnly: false, domain:'127.0.0.1:5000' }
+    saveUninitialized: false
   })
 );
 
