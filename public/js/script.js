@@ -1,92 +1,62 @@
 // общая цена
-// function totalSum() {
-//   let sum = 0;
-//   allCost = $('.basket_price p').text()
-//   data = allCost.split('$');
-//   for (var i = 0; i < data.length; i++) {
-//     sum += +(data[i]);
-//   }
-//   $('#tp').text(sum + '$');
-// }
-// totalSum();
+function totalSum() {
+  let sum = 0;
+  var total = 0;
+  sumArr = [];
+  allCost = $('.basket_price span').text(
+    function(i, val) {
+      sumArr.push(val)
+    })
+  sumArr.forEach(item => {
+    total += Number(item)
+  })
+  $('#tp').text(total + ' грн.');
+}
 
-// кнопки Del
-// $(".button_delete").on("click", del);
-//
-// function del() {
-//   var qwe = confirm("Вы действительно желаете удалить этот товар из корзины?");
-//   if (qwe) {
-//     $.ajax({
-//       url: '/mycart', // путь к обработчику
-//       type: 'GET', // метод передачи данных
-//       data: {
-//         data_id: $(this).children().attr('data_id')
-//       },
-//       success: function(response) {
-//         $('body').html(response);
-//         footerMoover();
-//       }
-//     });
-//   }
-// }
-
-// кнопки кол-ва
-// z = $(".quantity button").on("click", changeQuantity);
-//
-// function changeQuantity() {
-//   $.ajax({
-//     url: '/mycart', // путь к обработчику
-//     type: 'GET', // метод передачи данных
-//     data: {
-//       data_id: this.dataset.id,
-//       data_count: this.dataset.count
-//     },
-//     success: function(response) {
-//       $('body').html(response);
-//       footerMoover();
-//     }
-//   });
-// }
+document.addEventListener("DOMContentLoaded", () => {
+  totalSum();
+});
 
 
+// цена за позицию товара
+function sumInLine() {
+  const field = $(".basket_field")
+
+  for (var i = 0; i < field.length; i++) {
+    let searchEl = field[i].querySelector('.show');
+    let elText = searchEl.textContent;
+    console.log('searchEl', searchEl, 'elText', elText);
+
+    let searchCost = field[i].querySelector('.cost');
+    let costText = searchCost.textContent;
+    console.log('searchCost', searchCost, 'costText', costText)
+    let totalCost = costText * elText;
+    if (costText != totalCost) {
+      searchCost.innerHTML = totalCost;
+    }
+  }
+};
+
+$(".show").bind("DOMSubtreeModified", function() {
+  sumInLine();
+});
 
 
 // кнопки buy_now
 var btnsByNow = $(".button_buy_now");
-// var filterSet = new Set();
-
-
-// // Заполняем filterSet
-// function filterSetLoader() {
-//   if (localStorage.length > 0) {
-//     arrByNow = JSON.parse(localStorage.getItem('arrByNow'));
-//     for (var i = 0; i < arrByNow.length; i++) {
-//       filterSet.add(arrByNow[i]);
-//     }
-//   }
-// }
-// filterSetLoader();
-
 
 btnsByNow.on("click", byNow);
 
 function byNow() {
-  // if (btnsByNow.length > 1) {
-  //   filterSet.add($(this).data("id"));
-  //   arrByNow = [...filterSet];
-  //   localStorage.setItem("arrByNow", JSON.stringify(arrByNow));
-  // }
   const idAdd = $(this).data("id");
-  console.log(idAdd);
   const send = JSON.stringify(idAdd);
-  console.log(send);
   const xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost:5000/mycart');
   xhr.responseType = 'json';
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.setRequestHeader("Value", "Item");
   xhr.withCredentials = true;
   xhr.send(send);
-
   xhr.onload = () => {
     console.log('success! 👍');
   };
@@ -96,30 +66,6 @@ function byNow() {
   };
 }
 
-// mousedown
-// var myCartButton = document.getElementById('basket');
-//
-// function sendSata() {
-//   if (arrByNow) {
-//     const sendArr = JSON.stringify(arrByNow);
-//     const xhr = new XMLHttpRequest();
-//     xhr.open('POST', 'http://localhost:5000/mycart');
-//     xhr.responseType = 'json';
-//     xhr.setRequestHeader('Content-Type', 'application/json');
-//     xhr.send(sendArr);
-//
-//     xhr.onload = () => {
-//       console.log('success! 👍');
-//     };
-//     xhr.onerror = () => {
-//       console.log('Something went wrong! ❌');
-//       console.log(xhr.response);
-//     };
-//   };
-// };
-// if (myCartButton) {
-//   sendSata();
-// }
 
 // menu checkbox
 // var pos = document.getElementsByClassName('card_product');
@@ -162,6 +108,7 @@ function byNow() {
 //   }
 // }
 
+
 //  footerMoover
 var footer = document.querySelector('footer');
 var body = document.querySelector('body');
@@ -176,3 +123,86 @@ function footerMoover() {
   }
 }
 window.addEventListener('load', footerMoover);
+
+
+// удаление товара из корзины
+var btns = $(".button_delete");
+btns.on("click", del);
+
+function del() {
+  const qwe = confirm("Вы действительно желаете удалить этот товар из корзины?");
+  if (qwe) {
+    let idDel = $(this).data("id");
+    idDel = "del=" + idDel;
+    const send = JSON.stringify(idDel);
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:5000/mycart');
+    xhr.responseType = 'json';
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader("Value", "Delete");
+    xhr.withCredentials = true;
+    xhr.send(send);
+
+    xhr.onload = () => {
+      console.log('success! 👍');
+    };
+    xhr.onerror = () => {
+      console.log('Something went wrong! ❌');
+      console.log(xhr.response);
+    };
+
+    $(this).parent().remove();
+  }
+}
+
+
+// изменение количества товаров
+var btnsPlus = $("button[data-count='plus']");
+btnsPlus.on("click", plus);
+
+function plus() {
+  let idPlus = $(this).data("id");
+  idPlus = "pls=" + idPlus;
+  const send = JSON.stringify(idPlus);
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:5000/mycart');
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.setRequestHeader("Value", "Plus");
+  xhr.withCredentials = true;
+  xhr.send(send);
+
+  xhr.onload = () => {
+    let id = xhr.response.id;
+    $(`span[data-id="${id}"]`).text(xhr.response.quantity);
+  };
+  xhr.onerror = () => {
+    console.log('Something went wrong! ❌');
+    console.log(xhr.response);
+  };
+  sumInLine();
+}
+
+var btnsMinus = $("button[data-count='minus']");
+btnsMinus.on("click", minus);
+
+function minus() {
+  let idMinus = $(this).data("id");
+  idMinus = "mns=" + idMinus;
+  const send = JSON.stringify(idMinus);
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:5000/mycart');
+  xhr.responseType = 'json';
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.setRequestHeader("Value", "Minus");
+  xhr.withCredentials = true;
+  xhr.send(send);
+
+  xhr.onload = () => {
+    let id = xhr.response.id;
+    $(`span[data-id="${id}"]`).text(xhr.response.quantity);
+  };
+  xhr.onerror = () => {
+    console.log(xhr.response);
+  };
+}
