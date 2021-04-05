@@ -69,7 +69,7 @@ router.get('/mycart', urlencodedParser, (req, res) => {
   if (req.session.cart != undefined && req.session.cart.length > 0) {
     const quantity = req.session.cart;
     newArr = []
-    const sql = 'SELECT * FROM allGoods WHERE id IN(\'' + req.session.cart.map(i => i.id).join("','") + '\')';
+    const sql = 'SELECT * FROM all_goods WHERE id IN(\'' + req.session.cart.map(i => i.id).join("','") + '\')';
     db.query(sql, (err, result) => {
       if (err) throw err;
       for (var i = 0; i < result.length; i++) {

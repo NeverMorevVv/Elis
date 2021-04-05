@@ -23,7 +23,7 @@ router.get('/register', (req, res) => res.render('register'));
 
 // desk
 router.get('/desk', (req, res) => {
-  const sql = 'SELECT * FROM allGoods';
+  const sql = 'SELECT * FROM all_goods';
   db.query(sql, (err, data) => {
     if (err) throw err;
     res.render("desk", {
@@ -36,7 +36,7 @@ router.get('/desk', (req, res) => {
 // Item Page
 router.get("/:id", (req, res, next) => {
   if (!isNaN(+req.params.id)) {
-    const sql = 'SELECT * FROM allGoods WHERE id = ' + req.params.id;
+    const sql = 'SELECT * FROM all_goods WHERE id = ' + req.params.id;
     db.query(sql, (err, data) => {
       if (err) throw err;
       const lot = data.find(item => {
@@ -52,75 +52,17 @@ router.get("/:id", (req, res, next) => {
   }
 });
 
-// Admin
-router.get('/admin', (req, res) => {
-
-  const sql = 'SELECT * FROM allGoods';
+//User page
+router.get('/mypage', (req, res) => {
+  const sql = 'SELECT * FROM new_orders WHERE user_id = ' + req.session.passport.user;
   db.query(sql, (err, data) => {
     if (err) throw err;
-    var currentData = (item => {
-      return data;
-    });
-    if (req.query.id != undefined) {
-      const sql = 'DELETE FROM allGoods WHERE id = ' + req.query.id;
-      db.query(sql, (err, data) => {
-        if (err) throw err;
-        currentMessage = '1 record deleted';
-        res.redirect("back");
-
-      });
-    } else {
-      res.render("admin", {
-        currentData: data,
-        user: req.user
-      })
-    }
-  })
-});
-
-router.post("/admin", urlencodedParser, (req, res) => {
-  console.log(req.body);
-
-  if (!req.files || Object.keys(req.files).length === 0) {
-    var newGood = {
-      id: req.body.id,
-      name: req.body.name,
-      category: req.body.category,
-      cost: req.body.cost,
-      image: 'no_img.png',
-      quantity: req.body.quantity,
-      description: req.body.descr,
-    }
-  } else {
-    var newFile = req.files.img_name;
-    newFile.mv('./public/img/' + newFile.name, (err) => {
-      if (err) return res.status(500).send(err);
+    res.render('mypage', {
+      user: req.user,
+      data: data
     })
-    newGood = {
-      id: req.body.id,
-      name: req.body.name,
-      category: req.body.category,
-      cost: req.body.cost,
-      image: newFile.name,
-      quantityAll: req.body.quantity,
-      description: req.body.descr,
-    }
-  }
-  const sql = 'INSERT INTO allGoods SET ?';
-  db.query(sql, newGood, (err, result) => {
-    if (err) throw err;
-    currentMessage = '1 record inserted';
-    res.redirect("back");
-    // });
   });
 });
-
-//User page
-router.get('/mypage', (req, res) =>
-  res.render('mypage', {
-    user: req.user
-  })
-);
 
 // Dashboard
 router.get('/dashboard', (req, res) =>
